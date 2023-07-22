@@ -1,14 +1,11 @@
-import Image from "next/image"
-import Dropzone from './/Components/Dropzone'
+import Navbar from "./navbar";
 
 export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center p-24">
 
-    <Dropzone/>
-      
-
+      <Navbar/>
+      <h1>all info about our website</h1>
     </main>
-  )
+  );
 }
-

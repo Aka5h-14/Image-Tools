@@ -1,10 +1,10 @@
 "use client";
-
+import Navbar from "../navbar";
 import { useState, useCallback, useEffect } from "react";
 import { useDropzone } from "react-dropzone";
 import * as imageConversion from "image-conversion";
 
-const Dropzone = () => {
+const converter = () => {
 
   const [files, setFiles] = useState([]);
   const [properties, setProperties] = useState({
@@ -30,7 +30,7 @@ const Dropzone = () => {
   });
 
   const image = files?.map((file) => (
-    <img src={file.preview} className="w-2/3" alt="" />
+    <img src={file.preview} className="w-1/3 mx-auto" alt="" />
   ));
 
   // useEffect(() => {
@@ -45,14 +45,17 @@ const Dropzone = () => {
     var imagedata = canvas.toDataURL(e ,properties.quality );
     const res = await imageConversion.urltoBlob(imagedata)
     imageConversion.downloadFile(res);
-    console.log(res);
   }
 
 
   return (
     <>
-      <span> UPLOAD IMAGE </span>
-      <form className="w-full mb-10" action="">
+      <Navbar/>
+      <div className="flex flex-col mt-28">
+
+      <span className="text-center"> UPLOAD IMAGE </span>
+
+      <form className="w-1/2 mx-auto mb-10" action="">
         <div {...getRootProps()}>
           <input id="image" {...getInputProps({ name: "file" })} />
           <div className="grid w-full h-56 bg-gray-600 justify-items-center place-items-center">
@@ -71,10 +74,10 @@ const Dropzone = () => {
         <span className="text-sm text-end">only 1 image at a time</span>
       </form>
 
-      <span>Uploaded Image</span>
+      <span className="text-center">Uploaded Image</span>
       {image}
 
-      <div className="flex justify-between">
+      <div className="flex mx-auto mb-8 w-2/3 justify-between">
       <button
         className="mt-10 mx-8 bg-gray-500"
         onClick={() => {
@@ -100,6 +103,7 @@ const Dropzone = () => {
       </button>
 
       </div>
+      </div>
     </>
   );
 };
@@ -107,4 +111,4 @@ const Dropzone = () => {
 
 
 
-export default Dropzone;
+export default converter;
