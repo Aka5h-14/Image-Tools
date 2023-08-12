@@ -50,7 +50,7 @@ const converter = () => {
 
   return (
     <>
-      <Navbar/>
+      {/* <Navbar/> */}
       <div className="flex flex-col mt-28">
 
       <span className="text-center"> UPLOAD IMAGE </span>
