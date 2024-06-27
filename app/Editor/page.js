@@ -8,7 +8,7 @@ function Editor() {
 return(
     <>
     <Navbar/>
-    
+    <h1 className='mt-20 text-center text-2xl'>In development</h1>
     </>
 )
 
